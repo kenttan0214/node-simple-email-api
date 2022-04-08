@@ -37,6 +37,17 @@ Start local instance:
 npm start
 ```
 
+To run the email API
+```sh 
+curl --location --request POST 'http://localhost:3000/test/email' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "subject": "test email subject",
+    "content": "simple email content",
+    "recipients": ["foo@example.com"]
+}'
+```
+
 ### Run Unit Test
 ```sh
 npm test
