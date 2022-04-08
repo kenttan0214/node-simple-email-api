@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`input validation should return 400 error when content is not provided 1`] = `
+Object {
+  "body": Object {
+    "details": Array [
+      Object {
+        "instancePath": "/body",
+        "keyword": "required",
+        "message": "must have required property content",
+        "params": Object {
+          "missingProperty": "content",
+        },
+        "schemaPath": "#/properties/body/required",
+      },
+    ],
+    "message": "Event object failed validation",
+  },
+  "statusCode": 400,
+}
+`;
+
+exports[`input validation should return 400 error when recipients have duplicate entry 1`] = `
+Object {
+  "body": Object {
+    "details": Array [
+      Object {
+        "instancePath": "/body/recipients",
+        "keyword": "uniqueItems",
+        "message": "must NOT have duplicate items (items ## 1 and 0 are identical)",
+        "params": Object {
+          "i": 0,
+          "j": 1,
+        },
+        "schemaPath": "#/properties/body/properties/recipients/uniqueItems",
+      },
+    ],
+    "message": "Event object failed validation",
+  },
+  "statusCode": 400,
+}
+`;
+
+exports[`input validation should return 400 error when recipients is an empty array 1`] = `
+Object {
+  "body": Object {
+    "details": Array [
+      Object {
+        "instancePath": "/body/recipients",
+        "keyword": "minItems",
+        "message": "must NOT have less than 1 item",
+        "params": Object {
+          "limit": 1,
+        },
+        "schemaPath": "#/properties/body/properties/recipients/minItems",
+      },
+    ],
+    "message": "Event object failed validation",
+  },
+  "statusCode": 400,
+}
+`;
+
+exports[`input validation should return 400 error when recipients is not provided 1`] = `
+Object {
+  "body": Object {
+    "details": Array [
+      Object {
+        "instancePath": "/body",
+        "keyword": "required",
+        "message": "must have required property recipients",
+        "params": Object {
+          "missingProperty": "recipients",
+        },
+        "schemaPath": "#/properties/body/required",
+      },
+    ],
+    "message": "Event object failed validation",
+  },
+  "statusCode": 400,
+}
+`;
+
+exports[`input validation should return 400 error when subject is not provided 1`] = `
+Object {
+  "body": Object {
+    "details": Array [
+      Object {
+        "instancePath": "/body",
+        "keyword": "required",
+        "message": "must have required property subject",
+        "params": Object {
+          "missingProperty": "subject",
+        },
+        "schemaPath": "#/properties/body/required",
+      },
+    ],
+    "message": "Event object failed validation",
+  },
+  "statusCode": 400,
+}
+`;
+
+exports[`sendEmail hanlder should return 200 response with email preview URL 1`] = `
+Object {
+  "body": Object {
+    "preview": "https://unit-test-mock-email-url.example.com",
+  },
+  "headers": Object {
+    "Content-Type": "application/json",
+  },
+  "isBase64Encoded": false,
+  "statusCode": 200,
+}
+`;
+
+exports[`sendEmail hanlder should return 400 error when there is any unknown exception thrown in helper fuction 1`] = `
+Object {
+  "body": Object {
+    "errorMessage": "Something Went Wrong",
+  },
+  "headers": Object {
+    "Content-Type": "application/json",
+  },
+  "isBase64Encoded": false,
+  "statusCode": 400,
+}
+`;
