@@ -1,0 +1,42 @@
+service: demo-api
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+    excludeFiles: src/**/*.test.ts # Provide a glob for files to ignore
+    packagerOptions:
+      scripts:
+        - rm -rf node_modules/aws-sdk
+        - rm -rf node_modules/@types/aws-lambda
+
+  cors:
+    origin: '*'
+    headers:
+      - Content-Type
+      - Authorization
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ${env:STAGE}
+  region: ${env:REGION}
+  timeout: 10
+  memorySize: 128
+  logRetentionInDays: 7 # Set the default RetentionInDays for a CloudWatch LogGroup
+  apiGateway:
+    minimumCompressionSize: 1024 # Compress response when larger than specified size in bytes (must be between 0 and 10485760)
+  environment:
+    STAGE: ${self:provider.stage}
+
+functions:
+  sendEmail:
+    handler: src/handler/email/sendEmail.handler
+    events:
+      - http:
+          path: /email
+          method: post
