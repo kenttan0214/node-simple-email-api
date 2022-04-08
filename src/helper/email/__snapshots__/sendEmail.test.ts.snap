@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sendEmail should return the preview URL after success sent mail 1`] = `
+Object {
+  "preview": "https://unit-test-mock-email-url.example.com",
+}
+`;
+
+exports[`sendEmail should trigger transporter.sendMail function with the provided input 1`] = `
+Array [
+  Array [
+    Object {
+      "from": "\\"Fred Foo\\" <foo@example.com>",
+      "subject": "test email subject",
+      "text": "test content",
+      "to": "baz@example.com,bar@example.com",
+    },
+  ],
+]
+`;
