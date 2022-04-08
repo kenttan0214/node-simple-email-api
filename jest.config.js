@@ -4,9 +4,9 @@ module.exports = {
   transform: {
     '^.+\\.ts?$': 'ts-jest',
   },
-  preset: 'jest-ts',
+  preset: 'ts-jest',
   testRegex: 'test\\.ts$',
-  setupFiles: ['./setupJest.js'],
+  // setupFiles: ['./setupJest.js'],
   collectCoverage: true,
   collectCoverageFrom: [
     '**/src/model/**/*',
